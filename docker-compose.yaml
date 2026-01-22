@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  observer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: http-observer:latest
+    container_name: http-observer
+    ports:
+      - "19000:9000"
+    volumes:
+      - ./storage:/app/storage
+    restart: unless-stopped
