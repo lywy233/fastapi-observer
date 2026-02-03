@@ -8,7 +8,17 @@ services:
     image: http-observer:latest
     container_name: http-observer
     ports:
-      - "19000:9000"
+      - "39000:9000"
     volumes:
-      - ./storage:/app/storage
+      - ./volumes/storage:/app/storage
+    restart: unless-stopped
+
+  openresty:
+    image: openresty/openresty:alpine
+    container_name: openresty
+    ports:
+      - "30080:80"
+      - "30443:443"
+    # volumes:
+    #   - ./volumes/nginx/conf.d:/etc/nginx/conf.d:ro
     restart: unless-stopped
