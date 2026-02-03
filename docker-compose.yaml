@@ -19,6 +19,6 @@ services:
     ports:
       - "30080:80"
       - "30443:443"
-    # volumes:
-    #   - ./volumes/nginx/conf.d:/etc/nginx/conf.d:ro
+    volumes:
+      - ./volumes/nginx/conf.d:/etc/nginx/conf.d:ro
     restart: unless-stopped
